@@ -1,17 +1,17 @@
 ## Overview
+The "ARTGAN" project aims to use PyTorch and deep learning to create art that closely resembles the statistical patterns of a specific training dataset
+
+Select a photograph or random image of a person. Using GAN, this picture serves as a blank canvas on which realistic portraits of imaginary people can be drawn. Unlike the original, these photos seem incredibly real and have no similarity to the original image. The goal of ARTGAN is to fuse creative endeavours on new data that resembles an existing dataset. ARTGAN is the process of using GAN principles to create creative output, such as pictures, paintings, or other visual media. Tasks like artistic picture synthesis, style transfer, or boosting creative characteristics in digital content development could fall under this category.
 
 ## Project Description
+The dataset "Best Artworks of All Time" from Kaggle is downloaded and organized. It includes various artists and their artworks, which are then processed to be used in training the GAN. Dataset is explored to understand the distribution of artworks and artists. Visualization techniques are used to display sample images from the dataset. The images are resized, normalized, and transformed to be suitable for training the GAN. A data loader is created to handle batching and feeding images into the model. 
 
-
-## What is done in this Project?
+The GAN architecture is defined where generator creates images from random noise, and the discriminator attempts to distinguish between real and generated images. The training process involves alternating between training the discriminator and the generator. Losses for both the generator and the discriminator are calculated and used to update the model parameters. Generated images are saved at various epochs to visualize the progress of the generator. The final models for the generator and discriminator are saved for future use.
 
 ## TechStack and Libraries Requirement
-● NVIDIA GPUs cuda device and T4 GPU runtime.
-● A good CPU and a GPU with at least 8GB memory.
-● At Least 8GB of RAM.
-● Anaconda Jupyter Notebook
-● Required libraries for Python along with their version
-numbers used while making & testing of this project
+- Hardware: NVIDIA GPUs cuda device and T4 GPU runtime or A good CPU and a GPU with at least 8GB memory and At Least 8GB of RAM.
+- Tools: Anaconda Jupyter Notebook
+- Libraries: 
 ➔ Python - 3.6.7
 ➔ Numpy - 1.16.4
 ➔ Tensorflow - 1.13.1
@@ -30,8 +30,14 @@ For this Project, I utilized dataset [Best Artworks of all Time](https://www.kag
 ![image](https://github.com/user-attachments/assets/50173d24-41eb-4854-89da-ffb6b5b02868)
 
 ## What is GANs (Generative Adversarial Networks)?
+Generative Adversarial Networks (GANs) are a type of machine learning model that consists of two neural networks: a generator and a discriminator. Generator tries to creates fake data from random noise anf tries to produce data that looks like real data. Whereas, Discriminator evaluates whether the data is real or fake. and tries to distinguish between real data and data produced by the generator. The generator and the discriminator compete relentlessly in a zero-sum game to outsmart each other.
+
+The generator and discriminator are trained together in a competitive process. generator aims to create data that can fool the discriminator and discriminator aims to correctly identify real vs. fake data. This adversarial process continues until the generator produces highly realistic data.
+
 ![image](https://github.com/user-attachments/assets/5ccce639-e0da-4f86-b79e-a3562082edfc)
 <p align="center"><b>Figure 1:</b> GANs Architecture</p>
+
+GANs have a wide range of applications: Image Generation, Data Augmentation, Image-to-Image Translation, Video Generation Super-Resolution, Text-to-Image Synthesis.
 
 ### 1.) Generator Model 
 This model create synthetic images from random latent vectors and aims to produce increasingly realistic images over successive iterations. Works in tandem with the discriminator, which evolves concurrently to distinguish real from generated content. It utilizes transposed convolutional layers for upscaling latent vectors progrssively. Then, Batch normalization and ReLU activation introduce non-linearity for complex feature creation. Final Layer employs a Tanh activation function to ensure pixel values fall within the valid range of [-1, 1].
